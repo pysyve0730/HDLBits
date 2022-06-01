@@ -1,0 +1,20 @@
+module top_module (
+    input clk,
+    input reset,
+    input [7:0] d,
+    output [7:0] q
+);
+
+always@(negedge clk)begin
+  integer i;
+   // for(i=0; i <8; i = i +1)begin
+        if(reset)
+            //0x34 = 52(10) = 110100(b) =>8 bits 前面補0
+            //q[i] <= 8'b00110100;
+            q <= 8'b00110100;
+        else
+            //q[i] <= d[i];
+            q <= d;
+    //end
+end
+endmodule
