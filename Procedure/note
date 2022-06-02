@@ -7,3 +7,19 @@ for loop:當你的時脈(clock)正緣觸發時，會更新完always block裡面�
 
 電路有雜訊的問題，造成如果使用Latch來儲存的話，可能會造成一些訊號誤判造成電路錯誤的情況，
 而Flip-Flop比較沒有這情況，因為只有在時脈上升的才改變值，所以時脈之間有雜訊並不會影響輸出值
+
+
+Set up time：clock上升前，存進暫存器前需維持一段穩定的時間，才能保證存進暫存器的值沒有問題，這段需維持穩定的時間就稱為set up time．
+Hold time：clock上升後，暫存器的值需穩定一段時間，才能保證傳到下一層時的值是正確的，這段穩定的時間就稱為hold time．
+
+通常在single source clock時，比較會出問題的是set up time violation，遇到hold time violation時，可以加幾個buffer緩衝即可，set up time violation通常比較難克服
+
+去解決timing violation的問題，就是找出critical path並加一層register，但這樣的解決方式會造成效能的下降，所以採用pipeline的使用方式
+
+ASIC，特殊應用積體電路(Application-specific-integrated-circuit):要經過一連串的模擬與驗證，最後才能下線生產晶片，速度快
+FPGA為現場可程式化閘陣列(Field-Programmable-Gate_Array):可以重複燒錄到板子上
+
+static power：為漏電流所產生的功率消耗，為電晶體非工作情況下所產生的電流稱為漏電流，隨著製程越來越先進，漏電流所產生的功耗也逐漸逼近或超越dynamic power
+dynamic power一直以來都是功率消耗最多的項目，指每一個邏輯閘0變1或1變0所做的充放電消耗的功率，所以減少switch情況就能減少一部分的dynamic power
+
+clock也是一個dynamic power consumption
