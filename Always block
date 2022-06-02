@@ -1,0 +1,9 @@
+Combinational: always @(*)
+Clocked: always @(posedge clk)
+
+組合邏輯電路(Combinational Logic):input有變化才會去做always block裡的變化，跟clock無關===>always@(a or b)
+循序邏輯電路(Sequential Logic):clock上升的瞬間去做always block內的動作===>always@(posedge clk)
+
+在always裡面的變數必須是宣告成reg的形式
+同一個變數只能在同一個always block出現
+同一個變數分別寫在不同的always裡面，因為沒有優先權的順序，所以會產生問題
