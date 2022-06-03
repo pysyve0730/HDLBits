@@ -6,9 +6,10 @@ module top_module(
     output wire out_assign,
     output reg out_always   ); 
     
-    //指定的對象必須宣告為wire的形式
+    //assign的對象必須宣告為wire的形式
     assign out_assign = (sel_b1&sel_b2)?b:a;
     
+    //always宣告的形式必須為reg的形式
     always@(*) begin
         if(sel_b1&sel_b2) begin
             out_always = b;
